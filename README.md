@@ -1,0 +1,2 @@
+# minicard
+what is life
