@@ -3,7 +3,11 @@
   margin: auto;
 }
 
+#hand {
+}
+
 .card {
+  background-color: lightblue;
   border: 5px solid black;
   display: inline-block;
   height: 300px;
@@ -13,12 +17,25 @@
 }
 .card-name {
   display: block;
+  float: left;
+  max-width: 130px;
   padding-bottom: 10px;
 }
+
+.card-cost {
+  display: block;
+  float: right;
+}
+
+.cost-image {
+  width: 14px;
+  height: 14px;
+}
+
 .card-picture {
   display: block;
   padding-bottom: 10px;
-  max-height: 180px;
+  max-height: 150px;
   width: 100%;
 }
 .card-description {
@@ -27,4 +44,33 @@
 }
 .card-damage {
   display: block;
+}
+
+.promotion-screen {
+  margin-left: -640px;
+  margin-top: -300px;
+}
+
+.promotion-container {
+  width: 640px;
+  height: 480px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.victory-message {
+  font-size: 30px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.large-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.enemy-card-container {
+  position: fixed;
+  left: 630px;
+  top: 100px;
 }

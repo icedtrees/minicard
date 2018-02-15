@@ -9,26 +9,30 @@
 </head>
 <body>
 <div class="main">
-  <div>
-    Minicat: <span id="player-health">30</span> Health
+  <div style="font-size: 40px">
+    <div>
+      <span id="enemy-health">30</span>
+      <img class="large-icon" src="https://vignette.wikia.nocookie.net/starcraft/images/a/af/Roach_SC2_Rend2.JPEG/revision/latest?cb=20110214020756">
+    </div>
+    <div style="margin-top: 50px">
+      Minicat:
+      <span style="margin-right: 40px">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" class="large-icon">
+        <span id="player-health">30</span>
+      </span>
+      <span style="margin-right: 40px">
+        <img src="https://www.sc2bm.com/images/buildItems/bm_minerals.png" class="large-icon">
+        <span id="player-minerals">0</span>
+      </span>
+      <span style="margin-right: 40px">
+        <img src="https://vignette.wikia.nocookie.net/starcraft/images/3/30/Probe_SC2_Rend1.jpg/revision/latest?cb=20090129003200" class="large-icon">
+        <span id="player-income">0</span>
+      </span>
+    </div>
   </div>
-  <div>
-    Minicat: <span id="player-minerals">0</span> Minerals
-  </div>
-  <div>
-    Minicat: <span id="player-income">0</span> Probes mining
-  </div>
-  <div>
-    Enemy: <span id="enemy-health">30</span> Health
-  </div>
-  <div>
-    Opponent's play
-  </div>
-  <div>
-    Minicat's board
-  </div>
-  <div>
-    Minicat's Hand
+  <div style="margin-top: 50px;">
+    Minicat's Minicards
+    <button id="pass">Pass turn</button>
     <div id="hand">
     </div>
   </div>
