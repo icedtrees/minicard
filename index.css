@@ -73,4 +73,10 @@
   position: fixed;
   left: 630px;
   top: 100px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.enemy-card-container-visible {
+  opacity: 1 !important;
 }

@@ -123,7 +123,7 @@ const playerCards = {
 
 const enemyCards = {
   'fakepocket': {
-    'click': function () {
+    'trigger': function () {
       playerHealth -= 2;
     },
     'cost': 1000,
@@ -132,7 +132,7 @@ const enemyCards = {
     'name': 'Fake pockets',
   },
   'machinery': {
-    'click': function () {
+    'trigger': function () {
       document.querySelectorAll('.card').forEach(e => e.remove())
     },
     'cost': 1000,
@@ -141,7 +141,7 @@ const enemyCards = {
     'name': 'Machinery',
   },
   'wreckage': {
-    'click': function () {
+    'trigger': function () {
       document.querySelectorAll('.card-stalker, .card-creeper, .card-jeans').forEach(e => e.remove())
     },
     'cost': 1000,
@@ -243,13 +243,22 @@ let enemyTurn = function() {
   }
 
   const enemyCard = renderCard(enemyCardName);
-  enemyCards[enemyCardName].click();
+  enemyCards[enemyCardName].trigger();
 
   const enemyCardContainer = document.createElement('div');
   enemyCardContainer.className = 'enemy-card-container';
   enemyCardContainer.appendChild(enemyCard);
   document.body.appendChild(enemyCardContainer);
-  setTimeout(enemyCardContainer.remove.bind(enemyCardContainer), 1500);
+
+  setTimeout(() => {
+    enemyCardContainer.classList.add('enemy-card-container-visible');
+  }, 100);
+  setTimeout(() => {
+    enemyCardContainer.classList.remove('enemy-card-container-visible');
+  }, 1000);
+  setTimeout(() => {
+    enemyCardContainer.remove();
+  }, 1200);
 
   updateBoard();
 };
@@ -307,18 +316,20 @@ function renderCard(cardName) {
   }
   card.appendChild(damage);
 
-  card.addEventListener('click', function () {
-    if (playerMinerals < allCards[cardName].cost) {
-      alert('Not enough minerals!');
-      return;
-    }
+  if (allCards[cardName].click) {
+    card.addEventListener('click', function () {
+      if (playerMinerals < allCards[cardName].cost) {
+        alert('Not enough minerals!');
+        return;
+      }
 
-    playerMinerals -= allCards[cardName].cost;
-    allCards[cardName].click();
-    updateBoard();
-    card.remove();
-    enemyTurn();
-  });
+      playerMinerals -= allCards[cardName].cost;
+      allCards[cardName].click();
+      updateBoard();
+      card.remove();
+      enemyTurn();
+    });
+  }
 
   return card;
 }
